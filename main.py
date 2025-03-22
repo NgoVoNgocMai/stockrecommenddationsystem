@@ -1,4 +1,5 @@
 import os
+import shutil
 import time
 import datetime
 import requests
@@ -29,6 +30,11 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 stop_words = set(stopwords.words('english'))
+
+if not shutil.which("google-chrome"):
+    os.system("wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -")
+    os.system("echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list")
+    os.system("apt update && apt install -y google-chrome-stable")
 
 # Cấu hình Chrome ở chế độ headless
 chrome_options = Options()
