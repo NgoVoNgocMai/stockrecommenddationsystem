@@ -607,4 +607,4 @@ def create_recommendation_display(recommendation):
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
-    app.run_server(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
