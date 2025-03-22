@@ -1,3 +1,4 @@
+import os
 import time
 import datetime
 import requests
@@ -16,7 +17,7 @@ from googletrans import Translator
 from textblob import TextBlob
 import dash
 from dash import Dash, dcc, html, Input, Output, callback
-import dash_table
+from dash import dash_table
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import plotly.subplots as sp
@@ -605,4 +606,5 @@ def create_recommendation_display(recommendation):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run_server(host="0.0.0.0", port=5000, debug=True)
